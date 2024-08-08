@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ 제작을 위한 아코디언 기능 구현하기 4가지</title>
+   <link rel="stylesheet" href="./css/faq.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+     <!-- 깃페이지 조심할것 : cdn 전부 내장하고 / 폰트 다 내장(구글폰트만 예외) -->
+    <script src="./js/faq.js" defer></script>
+    
+</head>
+<body>
+    <!--section#faq>.inner>h2{사전인터뷰}+div.faqwrap>ul>li*4>h3{인터뷰질문}+p{인터뷰내용 넣기} -->
+    <section id="faq">
+        <div class="inner">
+            <h2>사전인터뷰</h2>
+            <div class="faqwrap">
+                <ul>
+                    <li class="open">
+                        <h3>인터뷰질문</h3>
+                        <p>인터뷰내용 넣기<br/>
+                            인터뷰내용 널기<br/>
+                            인터뷰내용 걷기</p>
+                    </li>
+                    <li>
+                        <h3>인터뷰질문</h3>
+                        <p>인터뷰내용 넣기</p>
+                    </li>
+                    <li>
+                        <h3>인터뷰질문</h3>
+                        <p>인터뷰내용 넣기</p>
+                    </li>
+                    <li>
+                        <h3>인터뷰질문</h3>
+                        <p>인터뷰내용 넣기</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

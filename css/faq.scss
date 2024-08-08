@@ -1,0 +1,36 @@
+.inner{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#faq{
+    display: none;
+    .inner{
+        .h2{ font-size: calc(1rem + 1vw);}
+        .faqwrap{
+            ul{
+                li{
+                    &.open{
+                        h3{ background-color: blue;}
+                        P{max-height: 400px;}  
+                    }
+                    h3{ font-size: 1.2rem;}
+                    P{
+                        padding: 0 1rem;
+                        line-height: 1.8;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: 0.5s;
+                        &:before, &:after{
+                            content: "";
+                            display: block;
+                            height: 1rem;
+
+                        }
+                    }
+                
+                }
+            }
+        }
+    }
+}

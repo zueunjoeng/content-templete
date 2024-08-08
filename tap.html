@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul,ol,dl{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    #tab{
+        width: 800px;
+        margin: 100px auto 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    #tab li{
+        width: 50%;
+    }
+    #tab li button{
+        display: block;
+        background-color: #ccc;
+        color: #000;
+        text-align: center;
+        line-height: 50px;
+        width: 100%;
+        border: 0;
+    }
+    #tab .ab_box{
+        position:absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        background-color: #fff;
+        border: solid 1px #333;
+        border-top: 0;
+        box-sizing: border-box;
+        z-index: 1;
+        display: none
+    }
+    #tab .ab_box p{
+        line-height: 300px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+    #tab .on button{ background-color: red !important;}
+    #tab .on .ab_box{ display: block !important;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // $(document).ready(function(){
+        //     // on메서드 동적객체, 정적객체 -> 1.7버전에서 사용하는 메서드
+        //     //동적객체
+        //     $('#tab').on('click',' li:not(.on) button', function(){
+        //         //#tab 정적객체 li:not(.on) button 동적객체
+        //         //시험장에서 콘솔로 확인하고 진행할 것
+        //         console.log($(this).index(), $(this).parent().index() );
+        //         $(this).parent().addClass('on').siblings().removeClass('on');
+        //     })
+        // })
+        window.onload = function(){
+          const  libtns =   document.querySelectorAll('#tab li button')
+          console.log(libtns.length)
+          libtns.forEach(function(ele, idx){
+            ele.addEventListener('click', function(){
+                console.log(this.parentElement);
+                //this의 부모태그 접근해줘
+                this.parentElement.classList.add('on');
+
+                let siblings = this.parentElement.parentElement.children;
+                //부모태그까지 포함된 상태임
+                //항상 객체검사
+                console.log(
+                    "데이터: " + siblings, 
+                    "데이터타입: " + typeof siblings, 
+                    "정렬인가?: " + Array.isArray(siblings),
+                    "키보여줘 " + Object.keys(siblings) //에러터지면 주석처리해
+                    //비동기통신 떄 자주 사용               
+                )
+
+                for (let sibling of siblings) {
+                    //in과 of의 차이 : in은 인덱스의 순서 of는 인덱스 안의 값. array순서 또는 값, 둘 중 무엇을 더 중요시하는지에 따라 달라진다.
+                    if (sibling !== this.parentElement) { // 부모빼고
+                        sibling.classList.remove('on');
+                    }
+                }
+            })
+          })
+        }
+    </script>
+</head>
+<body>
+    <ul id="tab">
+        <li class="on">
+            <button>공지사항</button>
+            <div class="ab_box">
+                <p>공시사항이 들어올거임</p>
+            </div>
+        </li>
+        <li>
+            <button>게시판</button>
+            <div class="ab_box">
+                <p>여긴 게시판 리스트!!!!!!!!</p>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
